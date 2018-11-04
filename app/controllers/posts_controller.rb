@@ -10,7 +10,10 @@ class PostsController < ApplicationController
     def create
         # render plain: params[:post].inspect
 
-        @post = Post.new(params[:post])
+        @post = Post.new(params[post_params]) #access the private method post_params
+
+        @post.save
+        redirect_to @post
     end
 
     private def post_params
