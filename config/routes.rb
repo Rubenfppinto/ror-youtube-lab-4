@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about', as: 'about'
 
-  resources :posts #creates alls the routes, gets, posts, patch, put and delete
+  resources :posts do #creates alls the routes, gets, posts, patch, put and delete
+    resources :comments #comments are nested inside posts
+  end
 end
