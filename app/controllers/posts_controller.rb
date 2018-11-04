@@ -16,8 +16,11 @@ class PostsController < ApplicationController
 
         @post = Post.new(post_params) #access the private method post_params
 
-        @post.save
-        redirect_to @post
+        if(@post.save)
+            redirect_to @post
+        else
+            render 'new'
+        end
     end
 
     private def post_params
